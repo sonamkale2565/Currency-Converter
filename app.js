@@ -37,10 +37,11 @@ const updateExchangeRate = async () => {
   const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
 
 let response = await fetch(URL);
-console.log(URL);
+  console.log("API URL:", URL);
 
 let data = await response.json();
-console.log(data);
+  console.log("API Data:", data);
+
 
 let rate = data[toCurr.value.toLowerCase()];
   
