@@ -1,3 +1,4 @@
+
 const BASE_URL =
   "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
@@ -34,10 +35,15 @@ const updateExchangeRate = async () => {
     amount.value = "1";
   }
   const URL = `${BASE_URL}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+
+let response = await fetch(URL);
+console.log(URL);
+
+let data = await response.json();
+console.log(data);
+
+let rate = data[toCurr.value.toLowerCase()];
   
-  let response = await fetch(URL);
-  let data = await response.json();
-  let rate = data[toCurr.value.toLowerCase()];
 
   let finalAmount = amtVal * rate;
   msg.innerText = `${amtVal} ${fromCurr.value} = ${finalAmount} ${toCurr.value}`;
