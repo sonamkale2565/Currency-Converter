@@ -50,11 +50,12 @@ const updateFlag = (element) => {
   let img = element.parentElement.querySelector("img");
   img.src = newSrc;
 };
-
 btn.addEventListener("click", (evt) => {
   evt.preventDefault();
+  console.log("Button clicked");
   updateExchangeRate();
 });
+
 
 window.addEventListener("load", () => {
   updateExchangeRate();
